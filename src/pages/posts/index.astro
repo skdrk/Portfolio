@@ -1,0 +1,129 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+---
+
+<Layout>
+  <Navbar />
+
+  <section class="container">
+    <h1>Posts</h1>
+
+    <div class="posts-grid">
+      <a href="https://medium.com/@skdrk20/de-leer-javascript-a-volcar-una-base-de-datos-oracle-cca59d04af7e" class="post-card" target="_blank" rel="noopener noreferrer">
+        <div class="post-image">
+          <img src="/src/images/patricio.gif" alt="De leer JavaScript a volcar una base de datos Oracle" />
+        </div>
+        <div class="post-content">
+          <h3>De leer JavaScript a volcar una base de datos Oracle</h3>
+          <p class="post-date">Medium · 2026</p>
+          <p class="post-summary">
+            Cómo a partir de la lectura de archivos JavaScript del frontend se puede escalar hasta volcar completamente una base de datos Oracle en un entorno real.
+          </p>
+          <div class="post-tags">
+            <span class="tag">Web</span>
+            <span class="tag">Oracle</span>
+            <span class="tag">SQLi</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .posts-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .post-card {
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #1f2937;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: flex;
+      gap: 0;
+    }
+
+    .post-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .post-image {
+      flex-shrink: 0;
+      width: 380px;
+      height: 240px;
+      overflow: hidden;
+      background: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .post-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .post-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .post-content h3 {
+      margin: 0 0 0.5rem 0;
+      color: var(--text);
+      font-size: 1.5rem;
+    }
+
+    .post-date {
+      color: #5edc7e;
+      font-size: 0.95rem;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .post-summary {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
+    }
+
+    .post-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .post-card {
+        flex-direction: column;
+      }
+
+      .post-image {
+        width: 100%;
+        height: 200px;
+      }
+
+      .post-content {
+        padding: 1rem;
+      }
+
+      .post-content h3 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</Layout>

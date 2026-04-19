@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout>
+  <Navbar />
+
+  <section class="container">
+    <h1>Certifications</h1>
+    
+    <div class="certs-grid">
+      <a href="#" class="cert-card">
+        <img src="/src/images/cjca.png" alt="CJCA" />
+      </a>
+      
+      <a href="#" class="cert-card">
+        <img src="/src/images/thm1.png" alt="THM" />
+      </a>
+
+      <a href="#" class="cert-card">
+        <img src="/src/images/udemi.png" alt="UDEMY" />
+      </a>
+    </div>
+    <div class="certs-grid">
+        <a href="#" class="cert-card">
+            <img src="/src/images/udemy2.png" alt="UDEMY" />
+        </a>
+        
+        <a href="#" class="cert-card">
+            <img src="/src/images/thm2.png" alt="THM" />
+        </a>
+
+        <a href="#" class="cert-card cisco-card">
+            <img src="/src/images/cisco.png" alt="CISCO" style="object-fit: contain; border-radius: 16px;"/>
+        </a>
+        </div>
+  </section>
+
+  <style>
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 1024px) {
+      .certs-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .certs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cert-card {
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #1f2937;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: block;
+      aspect-ratio: 1.4 / 1;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+    }
+
+    .cert-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cisco-card {
+      background: transparent;
+    }
+
+    .cisco-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .certs-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+    }
+  </style>
+</Layout>

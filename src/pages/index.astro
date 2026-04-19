@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<Layout>
+  <Navbar />
+  <Hero />
+
+  <section class="container">
+    <div class="about-card">
+      <div class="about-header">
+        <h2>Sobre mí</h2>
+      </div>
+      <div class="about-content">
+        <p>
+          Soy pentester con una trayectoria que abarca desde el soporte técnico y la administración de sistemas hasta la ciberseguridad ofensiva. He trabajado en entornos empresariales reales gestionando infraestructuras, servidores y equipos, lo que me ha dado una base sólida para entender los sistemas que ahora audito.
+        </p>
+        <p>
+          Actualmente me dedico a la realización de auditorías de seguridad web y de infraestructura en DLTCode, con especial foco en entornos web. Participo activamente en plataformas como <strong>HackerOne, Bugcrowd y HackTheBox</strong>, donde sigo perfeccionando mis habilidades en explotación de entornos web, infraestructuras Linux y Active Directory.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .about-card {
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #1f2937;
+      margin: 0 auto;
+      max-width: 1100px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .about-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.1);
+    }
+
+    .about-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .about-header h2 {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.75rem;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .about-content strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .about-card {
+        padding: 1.5rem;
+      }
+
+      .about-header h2 {
+        font-size: 1.5rem;
+      }
+
+      .about-content p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+
+  <section class="container">
+    <h2 style="font-size: 1.75rem; margin-bottom: 1.5rem; margin-left: 5px;">Experiencia</h2>
+    <div class="card">
+      <h3 style="color: var(--text); font-size: 1.25rem; margin: 0 0 0.5rem 0;">Pentester en DLTCode</h3>
+      <p style="color: #5edc7e; font-size: 0.95rem; margin: 0 0 0.75rem 0;">Auditorías de seguridad · Presente · 1 año</p>
+      <p style="color: var(--muted); line-height: 1.6; margin: 0;">
+        Realización de auditorías de seguridad web y de infraestructura en busca de vulnerabilidades. Especializado en entornos web, con experiencia en la identificación y reporte de fallos de seguridad en entornos reales.
+      </p>
+    </div>
+    <br>
+    <div class="card">
+      <h3 style="color: var(--text); font-size: 1.25rem; margin: 0 0 0.5rem 0;">Storage High Availability & Performance Engineer en Concentrix</h3>
+      <p style="color: #5edc7e; font-size: 0.95rem; margin: 0 0 0.75rem 0;">Soporte enterprise · Europa y Asia · 2 años 5 meses</p>
+      <p style="color: var(--muted); line-height: 1.6; margin: 0;">
+        Soporte internacional para clientes de Microsoft en entornos de alta disponibilidad y rendimiento de almacenamiento. Diagnóstico y resolución de incidencias, con especial foco en la gestión de sistemas de almacenamiento y redes.
+      </p>
+    </div>
+    <br>
+    <div class="card">
+      <h3 style="color: var(--text); font-size: 1.25rem; margin: 0 0 0.5rem 0;">Técnico informático en Control-P</h3>
+      <p style="color: #5edc7e; font-size: 0.95rem; margin: 0 0 0.75rem 0;">Soporte técnico · 10 meses</p>
+      <p style="color: var(--muted); line-height: 1.6; margin: 0;">
+        Soporte técnico remoto y presencial a clientes. Despliegue y administración de entornos empresariales: servidores, estaciones de trabajo y equipos de red. Diagnóstico y reparación de hardware.
+      </p>
+    </div>
+    <br>
+    <div class="card">
+      <h3 style="color: var(--text); font-size: 1.25rem; margin: 0 0 0.5rem 0;">Técnico informático en Aceites Abril</h3>
+      <p style="color: #5edc7e; font-size: 0.95rem; margin: 0 0 0.75rem 0;">Prácticas · 3 meses</p>
+      <p style="color: var(--muted); line-height: 1.6; margin: 0;">
+        Resolución de incidencias hardware y software, configuración de redes y despliegue de aplicaciones. Primera toma de contacto con entornos empresariales reales.
+      </p>
+    </div>
+    <br>
+    <div class="card">
+      <h3 style="color: var(--text); font-size: 1.25rem; margin: 0 0 0.5rem 0;">Administrativo Ourenmaq</h3>
+      <p style="color: #5edc7e; font-size: 0.95rem; margin: 0 0 0.75rem 0;">Administración y logística · 1 año 9 meses</p>
+      <p style="color: var(--muted); line-height: 1.6; margin: 0;">
+        Atención y venta en mostrador, gestión de pedidos, albaranes y facturas. Administración del almacén y coordinación del reparto de material.
+      </p>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,165 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+---
+
+<Layout>
+  <Navbar />
+
+  <section class="container">
+    <h1>0 Click Account Takeover</h1>
+    <p style="color: var(--muted);">Vulnerabilidad web · Account takeover · 23 Feb 2026</p>
+
+    <div class="post-hero">
+      <img src="/src/images/ato1.png" alt="0 Click Account Takeover" />
+    </div>
+
+    <div class="post-description">
+      <p>
+        Este post documenta una vulnerabilidad de account takeover sin necesidad de interacción del usuario, explicando el vector, la cadena de explotación y cómo mitigarlo en entornos web.
+      </p>
+    </div>
+
+    <article class="post-sections">
+      <section>
+        <h2>1. Contexto y motivación</h2>
+        <p>
+          En un entorno donde las aplicaciones manejan sesión persistente y tokens de verificación, los errores en la validación de parámetros o mismatched OAuth pueden permitir takeover con 0 clicks.
+        </p>
+        <figure>
+          <img src="/src/images/post-step1.png" alt="Contexto y motivación" />
+          <figcaption>Ejemplo de flujo vulnerable de autenticación.</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>2. Recon y hallazgos</h2>
+        <p>
+          Escaneo de endpoints y análisis de token JSON Web Token (JWT) revela parámetros no sanitizados. Se identificó que `redirect_uri` se acepta con subdominios no permitidos.
+        </p>
+        <figure>
+          <img src="/src/images/post-step2.png" alt="Recon y hallazgos" />
+          <figcaption>Captura de respuesta con parámetro vulnerable.</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>3. Explotación paso a paso</h2>
+        <ol>
+          <li>Interceptar petición de login / OAuth</li>
+          <li>Modificar `redirect_uri` hacia dominio controlado</li>
+          <li>Obtener token de sesión y reutilizarlo para takeover</li>
+        </ol>
+        <figure>
+          <img src="/src/images/post-step3.png" alt="Ejecución de explotación" />
+          <figcaption>Secuencia de explotación en Proxy (Burp / ZAP).</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>4. Mitigaciones</h2>
+        <ul>
+          <li>Validar estrictamente `redirect_uri` con lista blanca.</li>
+          <li>Usar tokens firmados y no aceptar valores no validados.</li>
+          <li>Implementar doble factor (2FA) para acciones sensibles.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Conclusiones</h2>
+        <p>
+          La clave está en validar y filtrar el origen del flujo de autenticación y auditar configuraciones de servicios OAuth/SAML para prevenir account takeover con 0 click.
+        </p>
+      </section>
+    </article>
+  </section>
+
+  <style>
+    .post-hero {
+      width: 100%;
+      max-width: 1100px;
+      margin: 2rem auto;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid #1f2937;
+      height: 280px;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .post-hero:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .post-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    .post-description {
+      max-width: 1100px;
+      margin: 0 auto 1.5rem;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+      background: var(--card);
+      border-radius: 16px;
+      border: 1px solid #1f2937;
+      padding: 1.25rem;
+    }
+
+    .post-sections {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .post-sections h2 {
+      color: var(--text);
+      margin-top: 0;
+    }
+
+    .post-sections p,
+    .post-sections ul,
+    .post-sections ol {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 1rem;
+    }
+
+    .post-sections img {
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+    }
+
+    .post-sections figure {
+      margin: 1rem 0;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .post-sections figcaption {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .post-hero, .post-description, .post-sections {
+        padding: 0 1rem;
+        box-sizing: border-box;
+      }
+
+      .post-image {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</Layout>

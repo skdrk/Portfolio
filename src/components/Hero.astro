@@ -1,0 +1,160 @@
+<section class="hero-section">
+  <div class="hero-container">
+    <div class="hero-image">
+      <img src="/src/images/borja.jpeg" alt="Borja Veloso" />
+      
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/borja-fern%C3%A1ndez-veloso-b168391b2/" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+        </a>
+        
+        <a href="https://hackerone.com/skdrk" target="_blank" rel="noopener noreferrer" class="social-icon" title="HackerOne">
+          <img src="https://images.icon-icons.com/2389/PNG/512/hackerone_logo_icon_145207.png" alt="HackerOne" />
+        </a>
+        
+        <a href="https://bugcrowd.com/h/skdrk" target="_blank" rel="noopener noreferrer" class="social-icon" title="BugCrowd">
+          <img src="https://www.bugcrowd.com/wp-content/uploads/2022/06/bclogo.png" alt="BugCrowd" />
+        </a>
+        
+        <a href="https://app.hackthebox.com/users/465002" target="_blank" rel="noopener noreferrer" class="social-icon" title="HackTheBox">
+          <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/hackthebox-x24e2j9cksob570h9epxb.png/hackthebox-gzgxni5aeyvdzirjyqvzlf.png?_a=DATAiZAAZAA0" alt="HackTheBox" />
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <h1>Borja Fernández Veloso</h1>
+      <p class="hero-subtitle">
+        Pentester y Bug Bounter
+      </p>
+
+      <p class="hero-description">
+        Especializado en explotación web, seguridad ofensiva y explotación de infraestructuras.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    padding: 4rem 0;
+  }
+
+  .hero-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero-image {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .hero-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    transition: transform 0.3s ease;
+  }
+
+  .hero-image img:hover {
+    transform: scale(1.05);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.1);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .social-icon:hover {
+    transform: translateY(-3px);
+  }
+
+  .social-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0%) saturate(100%) invert(74%) sepia(70%) saturate(1500%) hue-rotate(85deg);
+  }
+
+  .social-icon:hover img {
+    filter: brightness(0%) saturate(100%) invert(74%) sepia(70%) saturate(1500%) hue-rotate(85deg) brightness(1.2);
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--text);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--accent);
+    margin: 0 0 1rem 0;
+    font-weight: 500;
+  }
+
+  .hero-description {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hero-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .hero-image {
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .hero-image img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .social-links {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
