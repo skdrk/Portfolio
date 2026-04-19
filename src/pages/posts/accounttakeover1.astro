@@ -11,7 +11,7 @@ import Navbar from '../../components/Navbar.astro';
     <p style="color: var(--muted);">Vulnerabilidad web · Account takeover · 23 Feb 2026</p>
 
     <div class="post-hero">
-      <img src="/src/images/ato1.png" alt="0 Click Account Takeover" />
+      <img src="/images/ato1.png" alt="0 Click Account Takeover" />
     </div>
 
     <div class="post-description">
@@ -27,7 +27,7 @@ import Navbar from '../../components/Navbar.astro';
           En un entorno donde las aplicaciones manejan sesión persistente y tokens de verificación, los errores en la validación de parámetros o mismatched OAuth pueden permitir takeover con 0 clicks.
         </p>
         <figure>
-          <img src="/src/images/post-step1.png" alt="Contexto y motivación" />
+          <img src="/images/post-step1.png" alt="Contexto y motivación" />
           <figcaption>Ejemplo de flujo vulnerable de autenticación.</figcaption>
         </figure>
       </section>
@@ -38,7 +38,7 @@ import Navbar from '../../components/Navbar.astro';
           Escaneo de endpoints y análisis de token JSON Web Token (JWT) revela parámetros no sanitizados. Se identificó que `redirect_uri` se acepta con subdominios no permitidos.
         </p>
         <figure>
-          <img src="/src/images/post-step2.png" alt="Recon y hallazgos" />
+          <img src="/images/post-step2.png" alt="Recon y hallazgos" />
           <figcaption>Captura de respuesta con parámetro vulnerable.</figcaption>
         </figure>
       </section>
@@ -51,7 +51,7 @@ import Navbar from '../../components/Navbar.astro';
           <li>Obtener token de sesión y reutilizarlo para takeover</li>
         </ol>
         <figure>
-          <img src="/src/images/post-step3.png" alt="Ejecución de explotación" />
+          <img src="/images/post-step3.png" alt="Ejecución de explotación" />
           <figcaption>Secuencia de explotación en Proxy (Burp / ZAP).</figcaption>
         </figure>
       </section>
