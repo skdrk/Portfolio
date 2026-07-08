@@ -27,6 +27,23 @@ import Navbar from '../../components/Navbar.astro';
           </div>
         </div>
       </a>
+      <a href="https://medium.com/p/cf2ffe42a388" class="post-card" target="_blank" rel="noopener noreferrer">
+        <div class="post-image">
+          <img src="/images/wall.gif" alt="De un login imposible a Administrador Global" />
+        </div>
+        <div class="post-content">
+          <h3>De un login imposible a Administrador Global</h3>
+          <p class="post-date">Medium · 2026</p>
+          <p class="post-summary">
+            Cómo a partir de fuzzing de directorios y OSINT se descubre un IDOR en el endpoint de reseteo de contraseña de un CMS a medida, permitiendo acceder a cualquier cuenta y escalar hasta Administrador Global.
+          </p>
+          <div class="post-tags">
+            <span class="tag">Web</span>
+            <span class="tag">IDOR</span>
+            <span class="tag">Privesc</span>
+          </div>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -43,16 +60,31 @@ import Navbar from '../../components/Navbar.astro';
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid #1f2937;
-      transition: all 0.3s ease;
+      transition: all 0.3s ease, opacity 0.8s ease, filter 0.8s ease;
       text-decoration: none;
       display: flex;
       gap: 0;
+      opacity: 0;
+      filter: blur(12px);
+    }
+
+    .post-card.in-view {
+      opacity: 1;
+      filter: blur(0);
     }
 
     .post-card:hover {
       border-color: var(--accent);
       box-shadow: 0 0 20px rgba(34, 197, 94, 0.1);
       transform: translateY(-2px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .post-card {
+        opacity: 1;
+        filter: none;
+        transition: all 0.3s ease;
+      }
     }
 
     .post-image {
@@ -126,4 +158,20 @@ import Navbar from '../../components/Navbar.astro';
       }
     }
   </style>
+
+  <script>
+    const items = document.querySelectorAll('.post-card');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          entry.target.classList.toggle('in-view', entry.isIntersecting);
+        }
+      },
+      { threshold: 0.2, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    for (const item of items) {
+      observer.observe(item);
+    }
+  </script>
 </Layout>
