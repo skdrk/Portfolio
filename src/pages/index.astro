@@ -203,6 +203,7 @@ import Hero from '../components/Hero.astro';
 
     .timeline-item {
       position: relative;
+      box-sizing: border-box;
       width: calc(50% - 2.5rem);
       margin-bottom: 2.5rem;
       opacity: 0;
@@ -274,6 +275,11 @@ import Hero from '../components/Hero.astro';
         left: 0;
         width: 100%;
         padding-left: 2rem;
+        transform: translateX(0);
+      }
+
+      .timeline-item.in-view {
+        transform: translateX(0);
       }
 
       .timeline-item:nth-child(odd) .timeline-dot,

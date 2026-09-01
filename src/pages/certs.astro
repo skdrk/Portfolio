@@ -10,50 +10,46 @@ import Navbar from '../components/Navbar.astro';
     <h1>Certifications</h1>
     
     <div class="certs-grid">
-            <a href="#" class="cert-card">
+      <a href="https://portswigger.net/web-security/e/c/c937cdd4ba83d7a7" target="_blank" rel="noopener noreferrer" class="cert-card bscp-card">
+        <img src="/images/BSCP.png" alt="BSCP" style="object-fit: contain; border-radius: 16px;" />
+      </a>
+
+      <a href="#" class="cert-card">
         <img src="/images/CPTS.jpeg" alt="CPTS" />
       </a>
       <a href="#" class="cert-card">
         <img src="/images/cjca.png" alt="CJCA" />
       </a>
-      
+
       <a href="#" class="cert-card">
         <img src="/images/thm1.png" alt="THM" />
       </a>
 
-    </div>
-    <div class="certs-grid">
       <a href="#" class="cert-card">
         <img src="/images/udemi.png" alt="UDEMY" />
       </a>
 
-        <a href="#" class="cert-card">
-            <img src="/images/udemy2.png" alt="UDEMY" />
-        </a>
+      <a href="#" class="cert-card">
+        <img src="/images/udemy2.png" alt="UDEMY" />
+      </a>
 
-        <a href="#" class="cert-card cisco-card">
-            <img src="/images/cisco.png" alt="CISCO" style="object-fit: contain; border-radius: 16px;"/>
-        </a>
-        </div>
+      <a href="#" class="cert-card cisco-card">
+        <img src="/images/cisco.png" alt="CISCO" style="object-fit: contain; border-radius: 16px;"/>
+      </a>
+    </div>
   </section>
 
   <style>
     .certs-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
       margin-top: 2rem;
     }
 
-    @media (max-width: 1024px) {
-      .certs-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
     @media (max-width: 768px) {
       .certs-grid {
-        grid-template-columns: 1fr;
+        gap: 1rem;
       }
     }
 
@@ -95,20 +91,15 @@ import Navbar from '../components/Navbar.astro';
       object-fit: cover;
     }
 
-    .cisco-card {
-      background: transparent;
+    .cisco-card,
+    .bscp-card {
+      background: #ffffff;
     }
 
-    .cisco-card:hover {
+    .cisco-card:hover,
+    .bscp-card:hover {
       border-color: var(--accent);
       box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
-    }
-
-    @media (max-width: 768px) {
-      .certs-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 1rem;
-      }
     }
   </style>
 
